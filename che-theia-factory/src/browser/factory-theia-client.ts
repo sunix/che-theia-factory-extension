@@ -126,7 +126,7 @@ export class FactoryTheiaClient implements FrontendApplicationContribution {
             const source = project.source;
             const projectPath = this.projectsRoot + project.path;
 
-            this.messageService.info(`Cloning ... ${source.location} to ${projectPath}...`);
+            this.messageService.info(`CLONING ... ${source.location} to ${projectPath}...`);
 
             importProjectPromices.push(this.git.clone(
                 source.location,
@@ -161,6 +161,7 @@ export class FactoryTheiaClient implements FrontendApplicationContribution {
             return;
         }
         const uri = new URI().withPath(this.projectsRoot + relativePath).withScheme('file');
+        console.info('opening file: ' + this.projectsRoot + relativePath);
         await this.editorManager.open(uri);
     }
 
